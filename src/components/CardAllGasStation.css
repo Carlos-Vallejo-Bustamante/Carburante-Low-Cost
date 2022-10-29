@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap');
+
+.background-orange {
+    background: #ff6400;
+}
+
+.digital {
+    font-family: 'Roboto Slab', serif;
+}
+
+.slide {
+    animation: to-left 30s linear infinite;
+}
+
+@keyframes to-left {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.slide2 {
+    animation: to-left 31s linear infinite;
+}
+
+@keyframes to-left {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.small {
+    font-size: 0.7rem;
+}

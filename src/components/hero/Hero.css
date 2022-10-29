@@ -1,0 +1,14 @@
+.hero {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/images/precios-gasolineras.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 40vh;
+    background-position: center;
+}
+
+.shadowMe {
+    text-shadow: 2px 2px #000;
+}

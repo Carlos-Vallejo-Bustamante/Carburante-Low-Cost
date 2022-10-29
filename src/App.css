@@ -1,0 +1,9 @@
+body {
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.logo-stations {
+  width: 40px;
+}
