@@ -24,8 +24,8 @@ const ScrollButton = () => {
     window.addEventListener('scroll', toggleVisible);
 
     return (
-        <button className='bg-success rounded-bottom' onClick={scrollToTop}
-            style={{ display: visible ? 'inline' : 'none', marginLeft: '96%', marginBottom: '1%', border: 'none' }}>
+        <button className='bg-primary rounded-bottom' onClick={scrollToTop}
+            style={{ display: visible ? 'inline' : 'none', marginLeft: '95%', marginBottom: '1%', border: 'none' }}>
             <i className="bi bi-arrow-up-circle text-white"></i>
         </button>
     );
