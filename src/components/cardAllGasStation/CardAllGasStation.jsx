@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import '../CardAllGasStation.css';
 import CardGasStation from '../cardGasStation/CardGasStation';
 import Spinn from '../spinner/Spinner';
@@ -97,7 +97,6 @@ const CardAllGasStationProvider = ({ stations, city }) => {
     return (
         <>
             <div className="mb-5">
-                {/* {spinner && <Spinn />} */}
                 {listStation && listStation.length !== 0 ?
                     <>
                         <h2 className='my-5 text-center'>Gasolineras en {city} a {stations.Fecha}</h2>

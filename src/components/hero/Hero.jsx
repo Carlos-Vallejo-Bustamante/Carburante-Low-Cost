@@ -1,8 +1,8 @@
 import React from 'react'
 import './Hero.css'
-// import CarouselPrice from '../carouselPrice/CarouselPrice'
 
 const Hero = () => {
+
     return (
 
         <header className='hero row d-flex justify-content-center align-items-center mb-5'>

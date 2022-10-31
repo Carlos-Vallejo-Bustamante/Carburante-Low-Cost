@@ -3,12 +3,11 @@ import { React, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import '../CardAllGasStation.css'
+import Maps from '../maps/Maps';
 
 
 const CardGasStation = ({ station }) => {
-
     const [modalShow, setModalShow] = useState(false);
-    const urlPartOne = 'https://maps.google.com/?q='
 
     function MyVerticallyCenteredModal(props) {
         const { station } = props
@@ -71,11 +70,7 @@ const CardGasStation = ({ station }) => {
 
                         </ul>
                     </div>
-
-
-                    <a href={`${urlPartOne}${station.Latitud.replace(',', '.')},${station.Longitud_WGS84.replace(',', '.')}`} target="_blank" rel="noreferrer">
-                        <button className='btn btn-primary'><i className="bi bi-geo-fill"></i> Como Llegar</button>
-                    </a>
+                    <Maps station={station} />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="dark" onClick={props.onHide}>Close</Button>

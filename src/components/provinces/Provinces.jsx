@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 import cityAxios from '../../services/cityAxios';
 import priceAxios from '../../services/priceAxios';
 import CardAllGasStation from '../cardAllGasStation/CardAllGasStation';
-import ipAxios from '../../services/getIpAxios';
-import locationAxios from '../../services/getLocationAxios';
 
 const Provinces = () => {
 
@@ -12,7 +10,6 @@ const Provinces = () => {
     const [cities, setCities] = useState([])
     const [stations, setStations] = useState([])
     const [city, setCity] = useState('')
-    const [ip, setIp] = useState('')
 
     useEffect(() => {
         cityAxios
@@ -20,18 +17,6 @@ const Provinces = () => {
             .then((provinces) =>
                 setProvinces(provinces)
             )
-
-        ipAxios
-            .getIpAxios()
-            .then((ip) =>
-                setIp(ip)
-            )
-
-        locationAxios
-            .getLocationAxios(ip)
-            .then((location) => {
-                console.log(location);
-            })
     }, [])
 
     const handleChangeProvince = ({ target }) => {
