@@ -41,11 +41,9 @@ export const DataProvider = (props) => {
         GetLocationAxios
             .getLocationAxios(cordinates)
             .then((infoCity) => {
-                const cutCity = infoCity.plus_code.compound_code.split(' ')[1].replace(',', '')
+                const cutCity = infoCity.results[0].components.town
                 const arrayStations = stations.filter((city) => city.Municipio === cutCity)
-
                 setStationsFiltered(arrayStations)
-
             })
     }
 

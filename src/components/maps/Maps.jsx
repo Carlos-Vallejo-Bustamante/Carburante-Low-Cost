@@ -23,7 +23,7 @@ const Maps = ({ station }) => {
                     <Marker position={[latitude, longitude]} icon={IconMap} />
                 </MapContainer>
             </div>
-            <a className='btn btn-primary my-3' href={google} target="_blank" rel="noreferrer">
+            <a className='btn btn-success my-3 col-12' href={google} target="_blank" rel="noreferrer">
                 <i className="bi bi-geo-fill"></i> Como llegar
             </a>
         </div>
