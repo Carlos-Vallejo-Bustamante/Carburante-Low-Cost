@@ -126,12 +126,12 @@ const CardAllGasStationProvider = ({ stations, city }) => {
                                                 <h5 className="mb-1">{
                                                     logoStation(station.Rótulo.replaceAll('_', ' '))
                                                 }</h5>
-                                                <small><b>{station.Rótulo.replaceAll('_', ' ')}</b></small>
                                                 {station.Precio_Gasoleo_A === '' ? <small>Sin surtidor</small>
                                                     : <small className='digital'>{+station.Precio_Gasoleo_A.replaceAll(',', '.') * liters} €/l</small>
                                                 }
                                             </div>
                                             <div className="d-flex flex-column">
+                                                <small className='d-flex justify-content-center'><b>{station.Rótulo.replaceAll('_', ' ')}</b></small>
                                                 <p className="mb-1 h6 d-flex justify-content-center">{station.Dirección.replaceAll("_", " ")}</p>
                                                 <small className='h6 d-flex justify-content-center mb-3'>{city}({station.Provincia.toLowerCase()})</small>
                                                 <CardGasStation station={station} />
@@ -146,12 +146,12 @@ const CardAllGasStationProvider = ({ stations, city }) => {
                                                 <h5 className="mb-1">{
                                                     logoStation(station.Rótulo)
                                                 }</h5>
-                                                <small><b>{station.Rótulo.replaceAll('_', ' ')}</b></small>
                                                 {station.Precio_Gasolina_95_E5 === '' ? <small>Sin surtidor</small>
                                                     : <small className='digital'>{+station.Precio_Gasolina_95_E5.replaceAll(',', '.') * liters} €/l</small>
                                                 }
                                             </div>
                                             <div className="d-flex flex-column">
+                                                <small className='d-flex justify-content-center'><b>{station.Rótulo.replaceAll('_', ' ')}</b></small>
                                                 <p className="mb-1 h6 d-flex justify-content-center">{station.Dirección.replaceAll("_", " ")}</p>
                                                 <small className='h6 d-flex justify-content-center mb-3'>{city}({station.Provincia.toLowerCase()})</small>
                                                 <CardGasStation station={station} />
