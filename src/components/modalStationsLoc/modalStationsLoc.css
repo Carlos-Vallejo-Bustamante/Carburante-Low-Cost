@@ -1,3 +1,7 @@
 .bg-beig {
     background-color: #eef0d5;
 }
+
+.pointer {
+    cursor: pointer;
+}

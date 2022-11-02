@@ -99,7 +99,7 @@ const CardAllGasStationProvider = ({ stations, city }) => {
             <div className="mb-5">
                 {listStation && listStation.length !== 0 ?
                     <>
-                        <h2 className='my-5 text-center'>Gasolineras en {city} a {stations.Fecha}</h2>
+                        <h2 className='my-5 text-center'>Precios de Gasolineras en {city} a {stations.Fecha}</h2>
                         <div className='d-flex justify-content-around align-items-center flex-column flex-md-row mb-3 bg-dark text-white py-3 rounded'>
                             <p className='text-center col-12 col-md-7 col-lg-7'><i className="bi bi-calculator-fill"></i> Introduce los litros de tu depósito para calcular cuánto te costaría llenarlo.</p>
                             <input className='col-10 col-md-3 col-lg-3 rounded border border-success' type='Number' placeholder='litros' name='liters' onChange={handleSortPrice} />
@@ -124,8 +124,9 @@ const CardAllGasStationProvider = ({ stations, city }) => {
                                         <div className="list-group-item list-group-item-action" aria-current="true">
                                             <div className="d-flex w-100 justify-content-between">
                                                 <h5 className="mb-1">{
-                                                    logoStation(station.Rótulo)
+                                                    logoStation(station.Rótulo.replaceAll('_', ' '))
                                                 }</h5>
+                                                <small><b>{station.Rótulo.replaceAll('_', ' ')}</b></small>
                                                 {station.Precio_Gasoleo_A === '' ? <small>Sin surtidor</small>
                                                     : <small className='digital'>{+station.Precio_Gasoleo_A.replaceAll(',', '.') * liters} €/l</small>
                                                 }
@@ -145,6 +146,7 @@ const CardAllGasStationProvider = ({ stations, city }) => {
                                                 <h5 className="mb-1">{
                                                     logoStation(station.Rótulo)
                                                 }</h5>
+                                                <small><b>{station.Rótulo.replaceAll('_', ' ')}</b></small>
                                                 {station.Precio_Gasolina_95_E5 === '' ? <small>Sin surtidor</small>
                                                     : <small className='digital'>{+station.Precio_Gasolina_95_E5.replaceAll(',', '.') * liters} €/l</small>
                                                 }

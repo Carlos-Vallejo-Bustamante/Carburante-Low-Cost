@@ -31,7 +31,7 @@ const CityModal = () => {
                             <div key={station.Latitud} className='my-5'>
                                 <p className='text-dark mb-0'><i className="bi bi-fuel-pump-fill"></i> {station.Rótulo.replaceAll('_', ' ')} EN {station.Localidad}</p>
                                 <p className='text-dark'><i className="bi bi-geo-alt-fill"></i> {station.Dirección.replaceAll('_', ' ')}</p>
-                                <div className="bg-secondary w-50 p-2 border border-dark border-1 mb-3 z-1">
+                                <div className="bg-secondary p-2 border border-dark border-1 mb-3 z-1">
                                     <ul className="border border-dark border-1 p-0 m-0">
                                         {station.Precio_Gasoleo_A &&
                                             <li className='d-flex justify-content-between border border-dark border-1'>
@@ -96,7 +96,7 @@ const CityModal = () => {
             {
                 hidden && cordinates.longitude !== 0 ?
                     <>
-                        <div className='bg-dark text-success py-3 d-flex justify-content-center' onClick={activeModal}>
+                        <div className='bg-dark text-success py-3 d-flex justify-content-center pointer' onClick={activeModal}>
                             <i className="bi bi-compass"></i> CLICK PARA VER GASOLINERAS MÁS CERCANAS...
                         </div>
                         <MyVerticallyCenteredModal
@@ -105,7 +105,7 @@ const CityModal = () => {
                         />
                     </>
                     : hidden &&
-                    <div className='bg-dark text-primary py-3 d-flex justify-content-center' onClick={activeModal}>
+                    <div className='bg-dark text-primary py-3 d-flex justify-content-center pointer' onClick={activeModal}>
                         <i className="bi bi-compass"></i> ACTIVA LA GEOLOCALIZACIÓN PARA VER LAS GASOLINERAS MÁS CERCANAS
                     </div>
             }

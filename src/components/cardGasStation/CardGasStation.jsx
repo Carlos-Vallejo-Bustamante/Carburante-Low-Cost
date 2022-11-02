@@ -20,7 +20,7 @@ const CardGasStation = ({ station }) => {
             >
                 <Modal.Header closeButton closeVariant='white' className='bg-dark'>
                     <Modal.Title id="contained-modal-title-vcenter" className='text-white'>
-                        <span>{station.Rótulo} {station.Municipio}</span>   {station.Horario.includes('24H') && <span className='text-success'>Gasolinera abierta 24H</span>}
+                        <span>{station.Rótulo.replaceAll('_', ' ')} {station.Municipio.toUpperCase()}</span>   {station.Horario.includes('24H') && <span className='text-success'>Gasolinera abierta 24H</span>}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -32,7 +32,7 @@ const CardGasStation = ({ station }) => {
                         {station.Precio_Gasolina_95_E5 && ' Gasolina sin plomo 95 |'}
                         {station.Precio_Gasolina_98_E5 && ' Gasolina sin plomo 98 |'}
                         {station.Precio_Gases_licuados_del_petróleo && ' Gases licuados petróleo'}</p>
-                    <div className="bg-secondary w-50 p-2 border border-dark border-1 mb-3 z-1">
+                    <div className="bg-secondary p-2 border border-dark border-1 mb-3 z-1">
                         <ul className="border border-dark border-1 p-0 m-0">
                             {station.Precio_Gasoleo_A &&
                                 <li className='d-flex justify-content-between border border-dark border-1'>

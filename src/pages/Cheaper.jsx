@@ -5,14 +5,14 @@ function Cheaper() {
     const { stations } = useContext(DataContext);
 
     const diesel = stations.map(numbers => +numbers.Precio_Gasoleo_A.replaceAll(',', '.'))
-    const outZerosDiesel = diesel.filter(numbers => numbers > 0)
+    const outZerosDiesel = diesel.filter(numbers => numbers > 1.50)
 
     const maxPriceDiesel = outZerosDiesel.reduce((a, b) => Math.max(a, b))
     const minPriceDiesel = outZerosDiesel.reduce((a, b) => Math.min(a, b))
     const averagePriceDiesel = outZerosDiesel.reduce((a, b) => a + b) / outZerosDiesel.length
 
     const gasolina = stations.map(numbers => +numbers.Precio_Gasolina_95_E5.replaceAll(',', '.'))
-    const outZerosGasolina = gasolina.filter(numbers => numbers > 0)
+    const outZerosGasolina = gasolina.filter(numbers => numbers > 1.50)
 
     const maxPriceGasolina = outZerosGasolina.reduce((a, b) => Math.max(a, b))
     const minPriceGasolina = outZerosGasolina.reduce((a, b) => Math.min(a, b))
@@ -57,6 +57,32 @@ function Cheaper() {
                         <h3 className=''>PRECIO MÍNIMO HOY DEL GASOLINA 95</h3>
                         <p>El Precio mínimo de la gasolina 95 hoy es de <span className='digital'>{minPriceGasolina} €/l</span></p>
                     </div>
+                </div>
+                <div className='px-5'>
+                    <h2>
+                        ¿Cuál es el precio del litro de diésel y de gasolina?
+                    </h2>
+                    <p>
+                        El litro de diésel en España tiene HOY un coste medio de 1.979€/l y el litro de gasolina vale 1.767€/l de media.
+                    </p>
+                    <h2>
+                        ¿Cuánto cuesta llenar un depósito de coche de media?
+                    </h2>
+                    <p>
+                        Llenar HOY en España el depósito de un coche de diésel, cuesta de media 99€ y llenarlo de gasolina vale 88€ en término medio.
+                    </p>
+                    <h2>
+                        ¿Cuál es la provincia con las gasolineras más baratas de España para repostar?
+                    </h2>
+                    <p>
+                        Las gasolineras más baratas de Cantabria tienen el diésel más barato de España con un precio de 1.699€/l. La gasolina más barata en España se vende HOY a 1.547€/l y la puedes encontrar en las gasolineras más baratas de Alicante/Alacant.
+                    </p>
+                    <h2>
+                        ¿Donde están las gasolineras más caras de España en el día de HOY?
+                    </h2>
+                    <p>
+                        El diésel más caro en España se vende a 2.324€/l y la gasolina más cara está a 2.074€/l. Estos precios se encuentran hoy en algunas gasolineras de Bizkaia/Vizcaya.
+                    </p>
                 </div>
 
             </div>
