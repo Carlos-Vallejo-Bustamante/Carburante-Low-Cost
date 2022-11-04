@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext } from 'react';
 import GetLocationAxios from '../services/getLocationAxios';
 import priceAxios from '../services/priceAxios';
 
@@ -8,17 +8,13 @@ export const DataProvider = (props) => {
 
     const [stations, setStations] = useState([])
     const [stationsFiltered, setStationsFiltered] = useState([])
+    const [active, setActive] = useState(true)
     const [cordinates, setCordinates] = useState({
         longitude: 0,
         latitude: 0
     })
 
-    useEffect(() => {
-        priceAxios
-            .getLivePrices()
-            .then(({ ListaEESSPrecio }) => {
-                setStations(JSON.parse(JSON.stringify(ListaEESSPrecio).replaceAll(" ", "_").replaceAll("(", "").replaceAll(")", "")))
-            })
+    const handleLocation = () => {
 
         navigator.geolocation.getCurrentPosition(
             function (position) {
@@ -34,7 +30,18 @@ export const DataProvider = (props) => {
                 enableHighAccuracy: true
             }
         )
-    }, [])
+
+        priceAxios
+            .getLivePrices()
+            .then(({ ListaEESSPrecio }) => {
+                setStations(JSON.parse(JSON.stringify(ListaEESSPrecio).replaceAll(" ", "_").replaceAll("(", "").replaceAll(")", "")))
+            })
+
+        setTimeout(() => {
+            setActive(false)
+        }, 3000);
+
+    }
 
     const handlestations = () => {
 
@@ -49,7 +56,7 @@ export const DataProvider = (props) => {
 
     return (
         <DataContext.Provider
-            value={{ stations, cordinates, stationsFiltered, handlestations }}
+            value={{ stations, cordinates, stationsFiltered, handlestations, handleLocation, active, setActive }}
         >
             {props.children}
         </DataContext.Provider>
