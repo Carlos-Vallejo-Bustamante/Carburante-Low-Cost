@@ -8,7 +8,9 @@ const Provinces = () => {
 
     const [provinces, setProvinces] = useState([])
     const [cities, setCities] = useState([])
-    const [stations, setStations] = useState([])
+    const [stationsSortGas, setStationsSortGas] = useState([])
+    const [stationsSort95, setStationsSort95] = useState([])
+    const [date, setDate] = useState('')
     const [city, setCity] = useState('')
 
     useEffect(() => {
@@ -34,8 +36,17 @@ const Provinces = () => {
 
         priceAxios
             .getPricesCity(id)
-            .then((gasStations) =>
-                setStations(gasStations)
+            .then((gasStations) => {
+                setStationsSortGas(JSON.parse(JSON.stringify(gasStations.ListaEESSPrecio).replaceAll(" ", "_").replaceAll("(", "").replaceAll(")", ""))
+                    .filter((stationfiltered) => stationfiltered.Precio_Gasoleo_A !== '' && stationfiltered.Precio_Gasolina_95_E5 !== '')
+                    .sort((a, b) => +a.Precio_Gasoleo_A.replaceAll(',', '.') - +b.Precio_Gasoleo_A.replaceAll(',', '.'))
+                )
+                setStationsSort95(JSON.parse(JSON.stringify(gasStations.ListaEESSPrecio).replaceAll(" ", "_").replaceAll("(", "").replaceAll(")", ""))
+                    .filter((stationfiltered) => stationfiltered.Precio_Gasoleo_A !== '' && stationfiltered.Precio_Gasolina_95_E5 !== '')
+                    .sort((a, b) => +a.Precio_Gasolina_95_E5.replaceAll(',', '.') - +b.Precio_Gasolina_95_E5.replaceAll(',', '.'))
+                )
+                setDate(gasStations.Fecha)
+            }
             )
     }
 
@@ -63,7 +74,7 @@ const Provinces = () => {
                     </div>
                 </fieldset>
             </form>
-            <CardAllGasStation city={city} stations={stations} />
+            <CardAllGasStation city={city} stationsSortGas={stationsSortGas} stationsSort95={stationsSort95} date={date} />
         </div>
     )
 }
