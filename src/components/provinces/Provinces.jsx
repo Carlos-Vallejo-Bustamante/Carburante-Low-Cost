@@ -74,7 +74,11 @@ const Provinces = () => {
                     </div>
                 </fieldset>
             </form>
-            <CardAllGasStation city={city} stationsSortGas={stationsSortGas} stationsSort95={stationsSort95} date={date} />
+            {stationsSortGas.length !== 0 ?
+                <CardAllGasStation city={city} stationsSortGas={stationsSortGas} stationsSort95={stationsSort95} date={date} />
+                :
+                <h3 className='text-center my-5'>No hay Gasolineras</h3>
+            }
         </div>
     )
 }

@@ -9,6 +9,7 @@ export const DataProvider = (props) => {
     const [stations, setStations] = useState([])
     const [stationsFiltered, setStationsFiltered] = useState([])
     const [active, setActive] = useState(true)
+
     const [cordinates, setCordinates] = useState({
         longitude: 0,
         latitude: 0
@@ -42,6 +43,7 @@ export const DataProvider = (props) => {
         }, 3000);
 
     }
+
 
     const handlestations = () => {
 

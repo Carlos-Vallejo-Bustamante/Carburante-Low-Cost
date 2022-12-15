@@ -2,9 +2,18 @@ import React, { Fragment } from 'react'
 import Hero from '../components/hero/Hero'
 import Provinces from '../components/provinces/Provinces'
 function Home() {
+
+    const title = 'ENCUENTRA LA GASOLINERA MÁS BARATA CERCA DE TI'
+
     return (
         <Fragment>
-            <Hero />
+            <Hero title={title} />
+            <div className='container rounded bg-white text-dark py-5 my-5'>
+                <div className='row'>
+                    <h2 className='text-center mb-3'>Listado de las gasolineras más baratas HOY en España</h2>
+                    <p>Ahorra dinero en el llenado de tu vehículo repostando en la gasolinera más barata de tu localidad. En nuestro CarbuRanking encontrarás los mejores precios de las estaciones de servicio de España</p>
+                </div>
+            </div>
             <Provinces />
             <div className='container'>
                 <div className='row'>

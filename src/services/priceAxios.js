@@ -1,6 +1,6 @@
-import InitAxios from "./initAxios";
+import InitApiAxios from "./initApiAxios";
 
-class PriceAxios extends InitAxios {
+class PriceAxios extends InitApiAxios {
     constructor() {
         super('/EstacionesTerrestres');
     }

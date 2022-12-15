@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../context/auth.context'
 import CityModal from '../modalStationsLoc/modalStationsLoc'
 
 const Navbar = () => {
+    const { logOut, user, moreCheap } = useContext(AuthContext)
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-dark">
@@ -13,9 +15,31 @@ const Navbar = () => {
                     </button>
                     <div className="collapse navbar-collapse ms-5" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <Link className="nav-link active text-white" aria-current="page" to='/gasolineras-mas-baratas-en-espana'>Precio Medio</Link>
+                            <li className="nav-item" onClick={moreCheap}>
+                                <Link className="nav-link active text-white" aria-current="page" to='/gasolineras-mas-baratas-en-espana' onClick={moreCheap}>Más baratas</Link>
                             </li>
+                            {
+                                !user &&
+                                <>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active text-white" aria-current="page" to='/signup'>Registrate</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active text-white" aria-current="page" to='/login'>Iniciar sesión</Link>
+                                    </li>
+                                </>
+                            }
+                            {
+                                user &&
+                                <>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active text-white" aria-current="page" to='/profile'>Perfil {user.name}</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active text-white" aria-current="page" to='/' onClick={logOut}>Cerrar sesión</Link>
+                                    </li>
+                                </>
+                            }
                         </ul>
                     </div>
                 </div>

@@ -9,3 +9,7 @@ html {
 .logo-stations {
   width: 40px;
 }
+
+.index-profile {
+  z-index: 1;
+}
